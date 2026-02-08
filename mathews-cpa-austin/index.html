@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================================
+         MATHEWS CPA INC. — Custom Demo Site
+         Built by Zaffre / Sol Seven Studios LLC
+         Austin, TX — Mathews Chacko, CPA
+         ============================================================ -->
+
+    <title>Mathews CPA Inc. | Austin CPA | Tax &amp; Accounting Since 2009</title>
+    <meta name="description" content="Trusted Austin CPA firm since 2009. Expert tax preparation, bookkeeping, payroll, IRS representation, and FBAR consulting for individuals and businesses. Call (512) 710-1000.">
+
+    <style>
+        /* ==================== RESET & VARIABLES ==================== */
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2d5986;
+            --primary-dark: #0f2440;
+            --gold: #b8860b;
+            --gold-light: #d4a855;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --text-lighter: #94a3b8;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-section: #f1f5f9;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --max-w: 1140px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        .img-cover {
+            position: relative;
+            overflow: hidden;
+        }
+        .img-cover img {
+            transform: scale(1.06);
+            transform-origin: top left;
+        }
+        .img-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .wm-dark::after {
+            background: radial-gradient(ellipse at bottom right, rgba(0,0,0,0.5) 0%, transparent 70%);
+        }
+        .wm-light::after {
+            background: radial-gradient(ellipse at bottom right, var(--bg-light) 0%, transparent 70%);
+        }
+
+        .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+        /* ==================== ZAFFRE DEMO BANNER ==================== */
+        .demo-banner {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 13px;
+            letter-spacing: 0.01em;
+        }
+        .demo-banner strong { color: #fff; }
+        .demo-banner a {
+            color: var(--gold-light);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+        .demo-banner a:hover { color: #fff; }
+
+        /* ==================== HEADER / NAV ==================== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+        .header.scrolled { box-shadow: var(--shadow-md); }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-phone {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .header-phone svg { margin-right: 4px; vertical-align: -2px; }
+
+        /* ==================== BUTTONS ==================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 28px;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            line-height: 1.4;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(26,54,93,0.25);
+        }
+        .btn-outline-white {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255,255,255,0.35);
+        }
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+        }
+        .btn-gold {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            box-shadow: 0 4px 12px rgba(184,134,11,0.3);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            position: relative;
+            background: var(--primary-dark);
+            padding: 100px 0 80px;
+            overflow: hidden;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('images/cities/austin-tx.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(15,36,64,0.95) 0%,
+                rgba(26,54,93,0.88) 40%,
+                rgba(26,54,93,0.75) 70%,
+                rgba(26,54,93,0.6) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px;
+            margin-bottom: 32px;
+        }
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        .hero-badge span {
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== STATS BAR ==================== */
+        .stats-bar {
+            position: relative;
+            z-index: 10;
+            margin-top: -48px;
+            margin-bottom: 40px;
+        }
+        .stats-inner {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border);
+        }
+        .stat-item {
+            padding: 28px 24px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* ==================== SECTION BASICS ==================== */
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--bg-light); }
+        .section-dark {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .section-header {
+            margin-bottom: 56px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+        .section-dark .section-label { color: var(--gold-light); }
+        .section-dark .section-title { color: #fff; }
+        .section-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-light);
+            max-width: 520px;
+            line-height: 1.65;
+            margin-top: 16px;
+        }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.6); }
+
+        /* ==================== SERVICE CARDS ==================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .service-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== INDUSTRY TAGS ==================== */
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .industry-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* ==================== IMAGE BAND ==================== */
+        .image-band {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+        .image-band img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            transform: scale(1.06);
+            transform-origin: top left;
+        }
+        .image-band-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15,36,64,0.6) 0%, rgba(26,54,93,0.35) 100%);
+            z-index: 1;
+        }
+        .image-band-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+        }
+        .image-band-content h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+        .image-band-content p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.75);
+            margin-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .image-band { height: 220px; }
+            .image-band-content h3 { font-size: 22px; }
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 420px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ==================== TEAM ==================== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        .team-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+        .team-card:hover { box-shadow: var(--shadow-md); }
+        .team-photo {
+            height: 260px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+        .team-initials {
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.2);
+        }
+        .team-info { padding: 24px; }
+        .team-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .team-info .team-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+        }
+        .team-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== WHY CHOOSE US ==================== */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .trust-card {
+            text-align: center;
+            padding: 32px 20px;
+        }
+        .trust-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .trust-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .trust-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+            padding: 72px 0;
+        }
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('images/Financial Charts Moody.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        .cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,54,93,0.92), rgba(15,36,64,0.95));
+        }
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        .cta-content p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 32px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .testimonials-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonials-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('images/Financial Documents Close-Up.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+        }
+        .testimonials-section > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 28px;
+        }
+        .testimonial-quote {
+            font-size: 28px;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .testimonial-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .testimonial-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .testimonial-role {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-icon svg { color: var(--primary); }
+        .contact-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .contact-value {
+            font-size: 15px;
+            color: var(--text-light);
+        }
+        .contact-value a {
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+        .contact-value a:hover { text-decoration: underline; }
+
+        .contact-form {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+        }
+        .contact-form h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .contact-form .form-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .form-group { margin-bottom: 12px; }
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font);
+            font-size: 15px;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,54,93,0.08);
+            background: #fff;
+        }
+        .form-input::placeholder { color: var(--text-lighter); }
+        textarea.form-input { resize: none; min-height: 100px; }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: #0f172a;
+            color: rgba(255,255,255,0.65);
+            padding: 64px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.65;
+            max-width: 300px;
+        }
+        .footer-heading {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-links a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .footer-bottom a { color: rgba(255,255,255,0.4); }
+        .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+        /* ==================== MOBILE MENU ==================== */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 16px 24px 24px;
+            border-top: 1px solid var(--border);
+            background: #fff;
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu .btn {
+            width: 100%;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .header-phone { display: none; }
+            .mobile-toggle { display: block; }
+
+            .hero { padding: 72px 0 60px; min-height: auto; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { width: 100%; text-align: center; }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-item:nth-child(2) { border-right: none; }
+            .stat-item:nth-child(1),
+            .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+
+            .section { padding: 56px 0; }
+            .section-title { font-size: 28px; }
+            .section-header { margin-bottom: 36px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .about-image { height: 280px; }
+            .team-grid { max-width: 100%; }
+            .trust-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+            .cta-content h2 { font-size: 28px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== DEMO BANNER ==================== -->
+    <div class="demo-banner">
+        This is a website concept designed for <strong>Mathews CPA Inc.</strong> by Zaffre.
+        This takes 2 weeks to build.
+        <a href="mailto:zaffrestudios@gmail.com">Interested? Let's talk &rarr;</a>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Mathews CPA</a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Meet Mathews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:5127101000" class="header-phone">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    (512) 710-1000
+                </a>
+                <a href="#contact" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+
+            <button class="mobile-toggle" id="menuToggle" aria-label="Menu">
+                <svg width="24" height="24" fill="none" stroke="var(--text)" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#team">Meet Mathews</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:5127101000" class="btn btn-primary">Call (512) 710-1000</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    <span>Serving Austin since 2009</span>
+                </div>
+
+                <h1>Austin's CPA for Individuals &amp; Small Businesses</h1>
+
+                <p>Tax preparation, bookkeeping, payroll, and IRS representation for Austin families and businesses. FBAR and international tax compliance expertise you won't find everywhere.</p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-gold">
+                        Schedule a Consultation
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="tel:5127101000" class="btn btn-outline-white">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        Call (512) 710-1000
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <div class="stat-number">16+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-label">Clients Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="color: var(--gold);">A+</div>
+                    <div class="stat-label">BBB Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size:24px;">AICPA</div>
+                    <div class="stat-label">Member</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">What We Do</div>
+                <h2 class="section-title">Full-Service Tax &amp; Accounting</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">From personal tax returns to complex business accounting and international compliance, we handle it all so you don't have to.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Tax Preparation</h3>
+                    <p>Individual and business tax return preparation. We maximize your deductions, minimize your liability, and ensure full compliance with federal and state tax codes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bookkeeping</h3>
+                    <p>Experienced, affordable bookkeeping and daily money management. You focus on running your business &mdash; we'll keep the books accurate and current.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Payroll Services</h3>
+                    <p>Complete payroll processing, tax filing, and compliance for your employees. Timely, accurate, and one less thing on your plate.</p>
+                </div>
+                <div class="service-card">
+                    <h3>IRS Representation</h3>
+                    <p>Expert representation before the IRS for audits, liens, levies, and other tax disputes. We stand between you and the IRS to protect your interests.</p>
+                </div>
+                <div class="service-card">
+                    <h3>FBAR &amp; International Tax</h3>
+                    <p>Foreign bank account reporting and international tax compliance. If you have accounts overseas, we help you stay compliant and avoid costly penalties.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Business Consultation</h3>
+                    <p>Strategic financial consulting for startups and established businesses. Entity selection, tax planning, growth strategy, and financial statement analysis.</p>
+                </div>
+            </div>
+
+            <!-- Industry Tags -->
+            <div style="margin-top: 48px; text-align: center;">
+                <div class="section-label">Industries We Serve</div>
+                <div class="industry-tags" style="justify-content: center; margin-top: 16px;">
+                    <span class="industry-tag">Small Businesses</span>
+                    <span class="industry-tag">Startups</span>
+                    <span class="industry-tag">Law Practices</span>
+                    <span class="industry-tag">International Clients</span>
+                    <span class="industry-tag">Real Estate</span>
+                    <span class="industry-tag">Professional Services</span>
+                    <span class="industry-tag">Restaurants</span>
+                    <span class="industry-tag">Healthcare</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMAGE BAND ==================== -->
+    <div class="image-band img-cover wm-dark">
+        <img src="images/The Consultation.jpg" alt="CPA consultation meeting">
+        <div class="image-band-overlay"></div>
+        <div class="image-band-content">
+            <div>
+                <h3>Your Finances Deserve Personal Attention</h3>
+                <p>We sit down with every client to build a plan that works &mdash; whether you're in Austin or overseas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label">About the Firm</div>
+                    <h2 class="section-title">Built on Client Relationships, Not Volume</h2>
+                    <div class="section-divider" style="margin-bottom: 24px;"></div>
+                    <p>Since 2009, Mathews CPA Inc. has served individuals, families, and small businesses across Austin and Central Texas. What started as a commitment to personalized accounting has grown into a practice that clients across the country &mdash; and internationally &mdash; rely on.</p>
+                    <p>We specialize in working with clients who need more than a tax return. Whether it's navigating IRS disputes, managing foreign account compliance, or building a financial strategy for a growing business, we bring hands-on attention that larger firms can't match.</p>
+                    <p>With offices in Austin and Cedar Park, and clients across the U.S. and Canada, Mathews CPA combines local roots with the expertise to handle complex, multi-jurisdictional financial needs.</p>
+                </div>
+                <div class="about-image img-cover wm-light">
+                    <img src="images/CPA Workspace.jpg" alt="Professional accounting workspace" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEAM ==================== -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Your CPA</div>
+                <h2 class="section-title">Meet Mathews Chacko</h2>
+                <div class="section-divider" style="margin: 0 auto;"></div>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="images/team-1.jpg" alt="Mathews Chacko, CPA" onerror="this.style.display='none'">
+                        <span class="team-initials">MC</span>
+                    </div>
+                    <div class="team-info">
+                        <h3>Mathews Chacko, CPA</h3>
+                        <div class="team-title">President &amp; Owner</div>
+                        <p>With over 16 years in public accounting, Mathews founded Mathews CPA Inc. to give Austin individuals and businesses the personal financial attention they deserve. A member of the AICPA and Texas Society of CPAs, he brings deep expertise in tax preparation, IRS representation, and international tax compliance &mdash; including FBAR reporting for clients with overseas accounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Why Mathews CPA</div>
+                <h2 class="section-title">Built on Trust. Driven by Results.</h2>
+                <div class="section-divider" style="margin: 0 auto;"></div>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-number">16+</div>
+                    <div class="trust-title">Years of Experience</div>
+                    <div class="trust-desc">Serving Austin individuals and businesses since 2009 with hands-on financial guidance.</div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-number" style="color: var(--primary-light);">2</div>
+                    <div class="trust-title">Texas Locations</div>
+                    <div class="trust-desc">Offices in Austin and Cedar Park, serving clients across the U.S. and Canada.</div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-number" style="color: var(--gold);">A+</div>
+                    <div class="trust-title">BBB Rated</div>
+                    <div class="trust-desc">A+ rating with the Better Business Bureau. Our reputation speaks for the quality of our work.</div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-number">FBAR</div>
+                    <div class="trust-title">International Expertise</div>
+                    <div class="trust-desc">Specialized in foreign account compliance and international tax &mdash; expertise most local CPAs don't offer.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="cta-overlay"></div>
+        <div class="container cta-content">
+            <h2>Ready to Take Control of Your Finances?</h2>
+            <p>Schedule a free consultation and discover how Mathews CPA can simplify your tax, bookkeeping, and compliance needs.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-gold">Schedule a Consultation</a>
+                <a href="tel:5127101000" class="btn btn-outline-white">Call (512) 710-1000</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="section section-dark testimonials-section">
+        <div class="testimonials-bg"></div>
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="section-divider" style="margin: 0 auto;"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p>Mathews has been handling our business and personal taxes for years. His attention to detail and proactive approach has saved us thousands. Intelligent, experienced, and genuinely client-centered.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RK</div>
+                        <div>
+                            <div class="testimonial-name">R. Kumar</div>
+                            <div class="testimonial-role">Law Practice, Austin</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p>As a small business owner, I was overwhelmed by the financial side. Mathews made everything manageable &mdash; explained it clearly and was always available when I had questions. Couldn't ask for more.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: var(--gold);">SP</div>
+                        <div>
+                            <div class="testimonial-name">Sarah P.</div>
+                            <div class="testimonial-role">Small Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p>We have accounts overseas and needed someone who understood FBAR reporting. Mathews handled everything &mdash; penalties avoided, full compliance, total peace of mind. Highly recommend.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: #4a7cb5;">DA</div>
+                        <div>
+                            <div class="testimonial-name">D. Anand</div>
+                            <div class="testimonial-role">International Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div>
+                    <div class="img-cover wm-light" style="border-radius: var(--radius); overflow: hidden; height: 180px; margin-bottom: 28px;">
+                        <img src="images/Office Overhead.jpg" alt="Organized accounting workspace" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+                    </div>
+                    <div class="section-label">Get in Touch</div>
+                    <h2 class="section-title">Let's Start a Conversation</h2>
+                    <div class="section-divider" style="margin-bottom: 24px;"></div>
+                    <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 32px;">Whether you have a quick question or need comprehensive financial guidance, we're ready to help. Reach out today for a free initial consultation.</p>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Austin Office</div>
+                            <div class="contact-value"><a href="tel:5127101000">(512) 710-1000</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Cedar Park Office</div>
+                            <div class="contact-value"><a href="tel:5129801000">(512) 980-1000</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value"><a href="mailto:mathews.chacko@mathewscpainc.com">mathews.chacko@mathewscpainc.com</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Offices</div>
+                            <div class="contact-value">9415 Burnet Rd, Ste 107, Austin, TX 78758<br><span style="font-size: 13px; color: var(--text-lighter);">1908 Yaupon Trl, Ste 102, Cedar Park, TX 78613</span></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Hours</div>
+                            <div class="contact-value">Mon &ndash; Fri: 9:30 AM &ndash; 7:30 PM<br>Sat: 11:00 AM &ndash; 4:00 PM<br><span style="font-size:13px; color: var(--text-lighter);">Extended hours during tax season</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="contact-form">
+                    <h3>Request a Free Consultation</h3>
+                    <p class="form-subtitle">We'll get back to you within 1 business day.</p>
+
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <input type="text" name="first_name" placeholder="First Name" required class="form-input">
+                            <input type="text" name="last_name" placeholder="Last Name" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <select name="service" class="form-input">
+                                <option value="">What can we help with?</option>
+                                <option value="tax-individual">Individual Tax Preparation</option>
+                                <option value="tax-business">Business Tax Services</option>
+                                <option value="bookkeeping">Bookkeeping</option>
+                                <option value="payroll">Payroll Services</option>
+                                <option value="irs">IRS Representation</option>
+                                <option value="fbar">FBAR &amp; International Tax</option>
+                                <option value="consulting">Business Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell us about your situation..." class="form-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+                            Request Consultation
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Mathews CPA</div>
+                    <p class="footer-desc">Austin's trusted CPA since 2009. Comprehensive tax, bookkeeping, payroll, and international compliance services for individuals and businesses.</p>
+                </div>
+                <div>
+                    <div class="footer-heading">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Meet Mathews</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">Contact Us</div>
+                    <ul class="footer-links">
+                        <li>9415 Burnet Rd, Ste 107, Austin, TX 78758</li>
+                        <li><a href="tel:5127101000">(512) 710-1000</a></li>
+                        <li><a href="mailto:mathews.chacko@mathewscpainc.com">mathews.chacko@mathewscpainc.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Mathews CPA Inc. All rights reserved.</span>
+                <a href="https://zaffre.website" target="_blank">Website by Zaffre</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MINIMAL JS ==================== -->
+    <script>
+        // Mobile menu
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.remove('open');
+            });
+        });
+        // Sticky nav shadow
+        window.addEventListener('scroll', function() {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+        });
+    </script>
+
+</body>
+</html>
